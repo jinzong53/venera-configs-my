@@ -17,22 +17,21 @@ class Comick extends ComicSource {
     /**
      * [Optional] init function
      */
-
     settings = {
         domains: {
             title: "主页源",
             type: "select",
             options: [
-                { value: "comick.io/home2" },
+                { value: "comick.io" },
                 { value: "preview.comick.io" }
             ],
-            default: "comick.io/home2"
+            default: "preview.comick.io"
         }
     }
 
     get baseUrl() {
         let domain = this.loadSetting('domains') || this.settings.domains.default;
-        return `https://preview.comick.io/`;
+        return `https://${domain}`;
     }
 
     static category_param_dict = {
@@ -111,30 +110,6 @@ class Comick extends ComicSource {
         "yuri": "百合"
     }
 
-    parseComicSerch(e) {
-        let url = e.querySelector("div.pl-3 > a.block")?.href; //测试通过
-
-        let id = url.split("/").pop(); //测试通过
-
-        let title = e.querySelector("div.pl-3 > a > p.font-bold.truncate").text.trim(); //测试通过
-
-        let cover = e.querySelector("div.relative > a >img").attributes["src"]; //测试通过
-
-        //let tags = e.querySelectorAll("div.tabs > span").map(e => e.text.trim())
-        // 通过完整的类名路径定位
-        let tags = e.querySelector('span[title="Published"]')?.textContent.trim() || '未知年份' //测试通过
-
-        let description = e.querySelector('div.pl-3 > a > p.overflow-ellipsis')?.text.trim(); //测试通过
-
-        return {
-            id: id,
-            title: title,
-            cover: cover,
-            tags: [tags],
-            description: description
-        }
-    }
-
     parseComic(e){
         let url = e.querySelector("a")?.href; //测试通过
 
@@ -169,7 +144,13 @@ class Comick extends ComicSource {
         type: "singlePageWithMultiPart",
 
         load: async () => {
-            var res = await Network.get(this.baseUrl)
+            let url = " ";
+            if(this.baseUrl == "https://comick.io") {
+                url = "https://comick.io/home2";
+            }else{
+                url = this.baseUrl;
+            }
+            var res = await Network.get(url)
             if (res.status !== 200) {
                 throw "Invalid status code: " + res.status
             }
@@ -314,139 +295,105 @@ class Comick extends ComicSource {
 
     // categories
     category = {
-        /// title of the category page, used to identify the page, it should be unique
-        title: "",
-        parts: [
-            {
-                // title of the part
-                name: "Theme",
+        /// 标题, 同时为标识符, 不能与其他漫画源的分类页面重复
+        title: "comick",
+        parts: [{
+            name: "类型",
 
-                // fixed or random or dynamic
-                // if random, need to provide `randomNumber` field, which indicates the number of comics to display at the same time
-                // if dynamic, need to provide `loader` field, which indicates the function to load comics
-                type: "fixed",
+            // fixed 或者 random
+            // random用于分类数量相当多时, 随机显示其中一部分
+            type: "fixed",
 
-                // Remove this if type is dynamic
-                categories: [
-                    {
-                        label: "Category1",
-                        /**
-                         * @type {PageJumpTarget}
-                         */
-                        target: {
-                            page: "category",
-                            attributes: {
-                                category: "category1",
-                                param: null,
-                            },
-                        },
-                    },
-                ]
+            // 如果类型为random, 需要提供此字段, 表示同时显示的数量
+            // randomNumber: 5,
 
-                // number of comics to display at the same time
-                // randomNumber: 5,
+            categories: Object.values(Comick.category_param_dict), // 使用上方的字典
 
-                // load function for dynamic type
-                // loader: async () => {
-                //     return [
-                //          // ...
-                //     ]
-                // }
-            }
+            // category或者search
+            // 如果为category, 点击后将进入分类漫画页面, 使用下方的`categoryComics`加载漫画
+            // 如果为search, 将进入搜索页面
+            itemType: "category",
+
+            // 若提供, 数量需要和`categories`一致, `categoryComics.load`方法将会收到此参数
+            categoryParams: Object.keys(Comick.category_param_dict),
+        }
         ],
-        // enable ranking page
         enableRankingPage: false,
     }
 
     /// category comic loading related
+    /// 分类漫画页面, 即点击分类标签后进入的页面
     categoryComics = {
-        /**
-         * load comics of a category
-         * @param category {string} - category name
-         * @param param {string?} - category param
-         * @param options {string[]} - options from optionList
-         * @param page {number} - page number
-         * @returns {Promise<{comics: Comic[], maxPage: number}>}
-         */
         load: async (category, param, options, page) => {
-            /*
-            ```
-            let data = JSON.parse((await Network.get('...')).body)
-            let maxPage = data.maxPage
+            let url = "https://api.comick.io/v1.0/search";
+            let queryParams = [`genres=${param}`, `page=${page}`];
 
-            function parseComic(comic) {
-                // ...
-
-                return new Comic({
-                    id: id,
-                    title: title,
-                    subTitle: author,
-                    cover: cover,
-                    tags: tags,
-                    description: description
-                })
+            // 处理国家选项
+            if (options[0] && options[0] !== "-全部") {
+                const countryCode = options[0].split("-")[0]; // 提取 "cn" 部分
+                queryParams.push(`country=${countryCode}`);
             }
+
+            // 处理状态选项
+            if (options[1]) {
+                const statusCode = options[1].split("-")[0]; // 提取 "1" 部分
+                queryParams.push(`status=${statusCode}`);
+            }
+
+            // 构建完整URL
+            const get_url = `${url}?${queryParams.join("&")}`;
+
+            let res = await Network.get(get_url)
+             // 解析 JSON 数据
+            let mangaList = JSON.parse(res.body);
+
+            // 检查是否成功解析
+            if (!Array.isArray(mangaList)) {
+                throw new Error("Response is not an array");
+            }
+
+            let maxPage = 50
+
+            // 转换数据格式
+            const formattedMangaList = mangaList.map(manga => {
+                // 提取封面（如果 md_covers 不存在则使用默认封面）
+                const cover = manga.md_covers?.[0]?`https://meo.comick.pictures/${manga.md_covers[0].b2key}` :'w7xqzd.jpg';
+
+                // 返回格式化后的对象
+                return {
+                    id: manga.slug,                     // 漫画 ID
+                    title: manga.title || "无标题",   // 漫画标题（默认值）
+                    cover: cover,                    // 封面图片
+                    //tags: manga.genres || [],         // 标签（数组，默认空数组） ，还没写对应关系
+                    tags: [],         // 标签（数组，默认空数组）
+                    description: manga.desc || "暂无描述" // 描述（默认值）
+                };
+            });
+
 
             return {
-                comics: data.list.map(parseComic),
+                comics: formattedMangaList,
                 maxPage: maxPage
             }
-            ```
-            */
         },
-        // provide options for category comic loading
-        optionList: [
-            {
-                // For a single option, use `-` to separate the value and text, left for value, right for text
-                options: [
-                    "newToOld-New to Old",
-                    "oldToNew-Old to New"
-                ],
-                // [Optional] {string[]} - show this option only when the value not in the list
-                notShowWhen: null,
-                // [Optional] {string[]} - show this option only when the value in the list
-                showWhen: null
-            }
-        ],
-        ranking: {
-            // For a single option, use `-` to separate the value and text, left for value, right for text
+        // 提供选项
+        optionList: [{
             options: [
-                "day-Day",
-                "week-Week"
+                "-全部",
+                "cn-国漫",
+                "jp-日本",
+                "kr-韩国",
+                "others-欧美",
             ],
-            /**
-             * load ranking comics
-             * @param option {string} - option from optionList
-             * @param page {number} - page number
-             * @returns {Promise<{comics: Comic[], maxPage: number}>}
-             */
-            load: async (option, page) => {
-                /*
-                ```
-                let data = JSON.parse((await Network.get('...')).body)
-                let maxPage = data.maxPage
-
-                function parseComic(comic) {
-                    // ...
-
-                    return new Comic({
-                        id: id,
-                        title: title,
-                        subTitle: author,
-                        cover: cover,
-                        tags: tags,
-                        description: description
-                    })
-                }
-
-                return {
-                    comics: data.list.map(parseComic),
-                    maxPage: maxPage
-                }
-                ```
-                */
-            }
-        }
+        }, {
+            options: [
+                "1-连载",
+                "2-完结",
+                "3-休刊",
+                "4-暂停更新",
+            ],
+        },
+        ],
     }
 
     /// search related
@@ -636,7 +583,7 @@ class Comick extends ComicSource {
             let comicData = jsonData.props.pageProps.comic;
             let authorData = jsonData.props.pageProps.authors;
 
-            let title = comicData.title; //测试通过
+            let title = comicData?.title || "未知标题"; //测试通过
 
             let cover = comicData.md_covers?.[0]?.b2key ?`https://meo.comick.pictures/${comicData.md_covers[0].b2key}` : 'w7xqzd.jpg';
 
@@ -664,7 +611,7 @@ class Comick extends ComicSource {
                 return Comick.category_param_dict[tag] || tag; // 如果字典里没有，就返回原值
             });
 
-            let updateTime = "第" + comicData.last_chapter + "话"; //这里目前还无法实现更新时间
+            let updateTime = comicData.last_chapter ? "第" + comicData.last_chapter + "话" : " "; //这里目前还无法实现更新时间
 
             let description = comicData.desc || "暂无描述"; //测试通过
 
