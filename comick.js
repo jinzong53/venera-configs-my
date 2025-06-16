@@ -36,79 +36,79 @@ class Comick extends ComicSource {
     }
 
     static category_param_dict = {
-        "浪漫": "romance",
-        "喜剧": "comedy",
-        "剧情": "drama",
-        "奇幻": "fantasy",
-        "日常": "slice-of-life",
-        "动作": "action",
-        "冒险": "adventure",
-        "心理": "psychological",
-        "悬疑": "mystery",
-        "历史": "historical",
-        "悲剧": "tragedy",
-        "科幻": "sci-fi",
-        "恐怖": "horror",
-        "异世界": "isekai",
-        "运动": "sports",
-        "惊悚": "thriller",
-        "机甲": "mecha",
-        "哲学": "philosophical",
-        "武侠": "wuxia",
-        "医疗": "medical",
-        "魔法少女": "magical-girls",
-        "超级英雄": "superhero",
-        "少年爱": "shounen-ai",
-        "成人": "mature",
-        "性转": "gender-bender",
-        "少女爱": "shoujo-ai",
-        "单篇": "oneshot",
-        "网络漫画": "web-comic",
-        "同人志": "doujinshi",
-        "全彩": "full-color",
-        "长条": "long-strip",
-        "改编": "adaptation",
-        "选集": "anthology",
-        "四格": "4-koma",
-        "用户创作": "user-created",
-        "获奖": "award-winning",
-        "官方上色": "official-colored",
-        "粉丝上色": "fan-colored",
-        "校园生活": "school-life",
-        "超自然": "supernatural",
-        "魔法": "magic",
-        "怪物": "monsters",
-        "武术": "martial-arts",
-        "动物": "animals",
-        "恶魔": "demons",
-        "后宫": "harem",
-        "转生": "reincarnation",
-        "上班族": "office-workers",
-        "生存": "survival",
-        "军事": "military",
-        "女装": "crossdressing",
-        "萝莉": "loli",
-        "电子游戏": "video-games",
-        "魔物娘": "monster-girls",
-        "不良少年": "delinquents",
-        "幽灵": "ghosts",
-        "时间旅行": "time-travel",
-        "烹饪": "cooking",
-        "警察": "police",
-        "外星人": "aliens",
-        "音乐": "music",
-        "黑帮": "mafia",
-        "吸血鬼": "vampires",
-        "武士": "samurai",
-        "后末日": "post-apocalyptic",
-        "辣妹": "gyaru",
-        "恶役千金": "villainess",
-        "逆后宫": "reverse-harem",
-        "忍者": "ninja",
-        "僵尸": "zombies",
-        "传统游戏": "traditional-games",
-        "虚拟现实": "virtual-reality",
-        "百合": "yuri"
+        "romance": "浪漫",
+        "comedy": "喜剧",
+        "drama": "剧情",
+        "fantasy": "奇幻",
+        "slice-of-life": "日常",
+        "action": "动作",
+        "adventure": "冒险",
+        "psychological": "心理",
+        "mystery": "悬疑",
+        "historical": "历史",
+        "tragedy": "悲剧",
+        "sci-fi": "科幻",
+        "horror": "恐怖",
+        "isekai": "异世界",
+        "sports": "运动",
+        "thriller": "惊悚",
+        "mecha": "机甲",
+        "philosophical": "哲学",
+        "wuxia": "武侠",
+        "medical": "医疗",
+        "magical-girls": "魔法少女",
+        "superhero": "超级英雄",
+        "shounen-ai": "少年爱",
+        "mature": "成人",
+        "gender-bender": "性转",
+        "shoujo-ai": "少女爱",
+        "oneshot": "单篇",
+        "web-comic": "网络漫画",
+        "doujinshi": "同人志",
+        "full-color": "全彩",
+        "long-strip": "长条",
+        "adaptation": "改编",
+        "anthology": "选集",
+        "4-koma": "四格",
+        "user-created": "用户创作",
+        "award-winning": "获奖",
+        "official-colored": "官方上色",
+        "fan-colored": "粉丝上色",
+        "school-life": "校园生活",
+        "supernatural": "超自然",
+        "magic": "魔法",
+        "monsters": "怪物",
+        "martial-arts": "武术",
+        "animals": "动物",
+        "demons": "恶魔",
+        "harem": "后宫",
+        "reincarnation": "转生",
+        "office-workers": "上班族",
+        "survival": "生存",
+        "military": "军事",
+        "crossdressing": "女装",
+        "loli": "萝莉",
+        "video-games": "电子游戏",
+        "monster-girls": "魔物娘",
+        "delinquents": "不良少年",
+        "ghosts": "幽灵",
+        "time-travel": "时间旅行",
+        "cooking": "烹饪",
+        "police": "警察",
+        "aliens": "外星人",
+        "music": "音乐",
+        "mafia": "黑帮",
+        "vampires": "吸血鬼",
+        "samurai": "武士",
+        "post-apocalyptic": "后末日",
+        "gyaru": "辣妹",
+        "villainess": "恶役千金",
+        "reverse-harem": "逆后宫",
+        "ninja": "忍者",
+        "zombies": "僵尸",
+        "traditional-games": "传统游戏",
+        "virtual-reality": "虚拟现实",
+        "yuri": "百合"
     }
 
     parseComicSerch(e) {
@@ -619,6 +619,7 @@ class Comick extends ComicSource {
         singleFolderForSingleComic: false,
     }
 
+
     /// single comic related
     comic = {
         // 加载漫画信息
@@ -627,83 +628,118 @@ class Comick extends ComicSource {
             if (res.status !== 200) {
                 throw "Invalid status code: " + res.status
             }
+
             let document = new HtmlDocument(res.body)
 
-            let title = document.querySelector('h1')?.text.trim(); //测试通过
+            let jsonData = JSON.parse(document.getElementById('__NEXT_DATA__').text); //json解析方式
 
-            //let cover = document.querySelector('div.mr-4.relative.row-span-5 > div.relative > a > img')?.attributes['src']; //测试通过
-            //
-            let all = document.querySelector("div.text-gray-500.overflow-auto.mt-3").text.trim()
-            let author = document.querySelector("div.text-gray-500.dark\\:text-gray-400.overflow-auto.mt-3 ").text.trim()
-            // let author = document.querySelector('div.overflow-auto.mt-3')?.text?.trim(); //测试通过
-            //
-            //
-            // //let tags = document.querySelectorAll("div.tag-list > span").map(e => e.text.trim())
-            // //tags = [...tags.filter(e => e !== "")]
-            //
-            // let genresRow = Array.from(document.querySelectorAll('td')).find(td => td.text.trim() === 'Genres:');
-            // let temp = genresRow?.nextElementSibling?.text.trim(); //测试通过
-            // let tags = temp?.split(/\s*,\s*/) || [];
-            // tags = [...tags.filter(e => e !== "")];
-            //
-            //
-            // // let updateTime = document.querySelector("div.supporting-text > div > span > em")?.text.trim().replace('(', '').replace(')', '')
-            // //
-            // // if (!updateTime) {
-            // //     updateTime = " ";
-            // // }
-            let updateTime = " "; //这里目前还无法实现
-            //
-            let description = document.querySelector("div[class*=\"my-3\"][class*=\"md:my-5\"]").text.trim() //测试通过
-            //
-            //
-            //
+            let comicData = jsonData.props.pageProps.comic;
+            let authorData = jsonData.props.pageProps.authors;
+
+            let title = comicData.title; //测试通过
+
+            let cover = comicData.md_covers?.[0]?.b2key ?`https://meo.comick.pictures/${comicData.md_covers[0].b2key}` : 'w7xqzd.jpg';
+
+            let author = authorData[0]?.name || "未知作者"; //测试通过
+
+            // 提取标签的slug数组的代码
+            let extractSlugs = (comicData) => {
+                try {
+                    // 获取md_comic_md_genres数组
+                    const genres = comicData.md_comic_md_genres;
+
+                    // 使用map提取每个md_genres中的slug
+                    const slugs = genres.map(genre => genre.md_genres.slug);
+
+                    return slugs;
+                } catch (error) {
+                    console.error("提取slug时出错:", error);
+                    return []; // 返回空数组作为容错处理
+                }
+            };
+
+            let tags = extractSlugs(comicData);
+            // 转换 tags 数组，如果找不到对应值则保留原值
+            const translatedTags = tags.map(tag => {
+                return Comick.category_param_dict[tag] || tag; // 如果字典里没有，就返回原值
+            });
+
+            let updateTime = "第" + comicData.last_chapter + "话"; //这里目前还无法实现更新时间
+
+            let description = comicData.desc || "暂无描述"; //测试通过
+
+            let buildId = jsonData.buildId;
+            let slug = jsonData.query.slug;
+            let firstChapters =jsonData.props.pageProps.firstChapters[0];
+            let chapters_url = "https://preview.comick.io/_next/data/" + buildId + "/comic/" + slug + "/" + firstChapters.hid + "-chapter-" + firstChapters.chap + "-en.json"
+            //https://preview.comick.io/_next/data/.5d942a5daa586bb403870880fa68f600d34e779a/comic/my-new-girlfriend-is-not-human/F6yr92Xt-chapter-1-en.json"
+            let list_res = await Network.get(chapters_url)
+            if (list_res.status !== 200) {
+                throw "Invalid status code: " + res.status
+            }
+            let chapters_raw = JSON.parse(list_res.body);
             let chapters = new Map()
-            // let i = 0
-            // for (let c of document.querySelectorAll("table.table-fixed.w-full > tbody> tr >td.customclass1 > a > div.truncate ")) {
-            //     let a = c.querySelector("span.font-semibold").text.trim();
-            //     let b = c.querySelector("span.text-xs").text.trim();
-            //     chapters.set(i.toString(), a + " " + b);
-            //     i++
-            // }
+            // 剩余解析章节信息
+            let chapters_next = chapters_raw.pageProps.chapters.reverse();
+            chapters_next.forEach((chapter, index) => {
+                //let title = chapter.title ? chapter.title : "";
+                let chapNum = chapter.chap ? "第" + chapter.chap + "话" : " ";
+                chapters.set(chapter.hid + "//" + chapter.chap, chapNum);
+            });
 
             return {
                 title: title,
-                cover: " ",
+                cover: cover,
                 description: description,
                 tags: {
                     "作者": [author],
-                    "更新": [all],
-                    "标签": []
+                    "更新": [updateTime],
+                    "标签": translatedTags
                 },
                 chapters: chapters,
             }
         },
         loadEp: async (comicId, epId) => {
             const images = [];
-            // let currentPageUrl = `${this.baseUrl}/comic/chapter/${comicId}/0_${epId}.html`;
-            // let maxAttempts = 100;
-            //
-            // while (maxAttempts > 0) {
-            //     const res = await Network.get(currentPageUrl);
-            //     if (res.status !== 200) break;
-            //
-            //     // 解析当前页图片
-            //     const doc = new HtmlDocument(res.body);
-            //     doc.querySelectorAll("ul.comic-contain > div > amp-img").forEach(img => {
-            //         const src = img?.attributes?.['src'];
-            //         if (typeof src === 'string') images.push(src);
-            //     });
-            //
-            //     // 查找下一页链接
-            //     const nextLink = doc.querySelector("a#next-chapter");
-            //     if (nextLink?.text?.match(/下一页|下一頁/)) {
-            //         currentPageUrl = nextLink.attributes['href'];
-            //     } else {
-            //         break;
-            //     }
-            //     maxAttempts--;
-            // }
+            const [hid, chapter] = epId.split("//");  // 例如 "abc123//42" → ["abc123", "42"]
+
+            // 检查分割结果是否有效
+            if (!hid || !chapter) {
+                console.error("Invalid epId format. Expected 'hid//chapter'");
+                return { images };  // 返回空数组
+            }
+
+            // 构建章节的 web_JSON URL
+            //https://preview.comick.io/comic/my-new-girlfriend-is-not-human/4MNGbfP8-chapter-120-en
+            let url = "https://preview.comick.io/comic/" + comicId + "/" + hid + "-chapter-" + chapter + "-en.json";
+
+            let maxAttempts = 100;
+
+            while (maxAttempts > 0) {
+                const res = await Network.get(url);
+                if (res.status !== 200) break;
+
+                let document = new HtmlDocument(res.body)
+
+                let jsonData = JSON.parse(document.getElementById('__NEXT_DATA__').text); //json解析方式
+                let imagesData = jsonData.props.pageProps.chapter.md_images;
+
+                // 解析当前页图片
+                imagesData.forEach(image => {
+                    // 处理图片链接
+                    let imageUrl = `https://meo.comick.pictures/${image.b2key}`;
+                    images.push(imageUrl);
+                });
+
+                // 查找下一页链接
+                const nextLink = document.querySelector("a#next-chapter");
+                if (nextLink?.text?.match(/下一页|下一頁/)) {
+                    url = nextLink.attributes['href'];
+                } else {
+                    break;
+                }
+                maxAttempts--;
+            }
         // 代理后图片水印更少
             return { images };
         }
