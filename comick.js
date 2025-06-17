@@ -488,13 +488,20 @@ class Comick extends ComicSource {
                     ? `第${comicData.last_chapter}话`: " ";
             let chaptersList = chapters_raw.pageProps.chapters || [];
             let chapters_next = chaptersList.reverse();
-            chapters_next.forEach(chapter => {
-                const type = chapter.chap != null ? "chapter" : "volume";
-                const num = chapter.chap ?? chapter.vol ?? "-1";
-                const suffix = chapter.chap != null ? "话" : "卷";
-
-                const chapNum = num === "无标卷" ? num : `第${num}${suffix}`;
-                chapters.set(`${chapter.hid}//${type}//${num}`, chapNum);
+            chapters_next.forEach((chapter, index) => {
+                if(chapter.chap==null && chapter.vol==null) {
+                    let chapNum = "无标卷";
+                    chapters.set(chapter.hid + "//no//-1", chapNum);
+                }else if(chapter.chap!=null && chapter.vol==null){
+                    let chapNum =  "第" + chapter.chap + "话" ;
+                    chapters.set(chapter.hid + "//chapter//" + chapter.chap, chapNum);
+                }else if(chapter.chap==null && chapter.vol!==null){
+                    let chapNum =  "第" + chapter.vol + "卷" ;
+                    chapters.set(chapter.hid + "//volume//" + chapter.vol, chapNum);
+                }else{
+                    let chapNum =  "第" + chapter.chap + "话" ;
+                    chapters.set(chapter.hid + "//chapter//" + chapter.chap, chapNum);
+                }
             });
 
             return {
