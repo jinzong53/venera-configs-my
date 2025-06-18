@@ -1,0 +1,263 @@
+language: {
+            title: "首选语言(俄文往下比例过低慎重选择)",
+            type: "select",
+            options: [
+                {
+                    value: 'en',
+                    text: '英文',
+                },
+                {
+                    value: 'pt-br',
+                    text: '巴西葡萄牙文',
+                },
+                {
+                    value: 'es-419',
+                    text: '拉丁美洲西班牙文',
+                },
+                {
+                    value: 'ru',
+                    text: '俄文',
+                },
+                {
+                    value: 'vi',
+                    text: '越南文',
+                },
+                {
+                    value: 'fr',
+                    text: '法文',
+                },
+                {
+                    value: 'pl',
+                    text: '波兰文',
+                },
+                {
+                    value: 'id',
+                    text: '印度尼西亚文',
+                },
+                {
+                    value: 'tr',
+                    text: '土耳其文',
+                },
+                {
+                    value: 'it',
+                    text: '意大利文',
+                },
+                {
+                    value: 'es',
+                    text: '西班牙文',
+                },
+                {
+                    value: 'uk',
+                    text: '乌克兰文',
+                },
+                {
+                    value: 'ar',
+                    text: '阿拉伯文',
+                },
+                {
+                    value: 'zh-hk',
+                    text: '香港繁体中文',
+                },
+                {
+                    value: 'hu',
+                    text: '匈牙利文',
+                },
+                {
+                    value: 'zh',
+                    text: '中文',
+                },
+                {
+                    value: 'de',
+                    text: '德文',
+                },
+                {
+                    value: 'ko',
+                    text: '韩文',
+                },
+                {
+                    value: 'th',
+                    text: '泰文',
+                },
+                {
+                    value: 'bg',
+                    text: '保加利亚文',
+                },
+                {
+                    value: 'ca',
+                    text: '加泰罗尼亚文',
+                },
+                {
+                    value: 'fa',
+                    text: '波斯文',
+                },
+                {
+                    value: 'ro',
+                    text: '罗马尼亚文',
+                },
+                {
+                    value: 'cs',
+                    text: '捷克文',
+                },
+                {
+                    value: 'mn',
+                    text: '蒙古文',
+                },
+                {
+                    value: 'he',
+                    text: '希伯来文',
+                },
+                {
+                    value: 'pt',
+                    text: '葡萄牙文',
+                },
+                {
+                    value: 'hi',
+                    text: '印地文',
+                },
+                {
+                    value: 'tl',
+                    text: '菲律宾文/他加禄文',
+                },
+                {
+                    value: 'fi',
+                    text: '芬兰文',
+                },
+                {
+                    value: 'ms',
+                    text: '马来文',
+                },
+                {
+                    value: 'eu',
+                    text: '巴斯克文',
+                },
+                {
+                    value: 'kk',
+                    text: '哈萨克文',
+                },
+                {
+                    value: 'sr',
+                    text: '塞尔维亚文',
+                },
+                {
+                    value: 'my',
+                    text: '缅甸文',
+                },
+                {
+                    value: 'el',
+                    text: '希腊文',
+                },
+                {
+                    value: 'nl',
+                    text: '荷兰文',
+                },
+                {
+                    value: 'ja',
+                    text: '日文',
+                },
+                {
+                    value: 'uz',
+                    text: '乌兹别克文',
+                },
+                {
+                    value: 'eo',
+                    text: '世界语',
+                },
+                {
+                    value: 'bn',
+                    text: '孟加拉文',
+                },
+                {
+                    value: 'lt',
+                    text: '立陶宛文',
+                },
+                {
+                    value: 'ka',
+                    text: '格鲁吉亚文',
+                },
+                {
+                    value: 'da',
+                    text: '丹麦文',
+                },
+                {
+                    value: 'ta',
+                    text: '泰米尔文',
+                },
+                {
+                    value: 'sv',
+                    text: '瑞典文',
+                },
+                {
+                    value: 'be',
+                    text: '白俄罗斯文',
+                },
+                {
+                    value: 'cv',
+                    text: '楚瓦什文',
+                },
+                {
+                    value: 'hr',
+                    text: '克罗地亚文',
+                },
+                {
+                    value: 'la',
+                    text: '拉丁文',
+                },
+                {
+                    value: 'ne',
+                    text: '尼泊尔文',
+                },
+                {
+                    value: 'ur',
+                    text: '乌尔都文',
+                },
+                {
+                    value: 'gl',
+                    text: '加利西亚文',
+                },
+                {
+                    value: 'no',
+                    text: '挪威文',
+                },
+                {
+                    value: 'sq',
+                    text: '阿尔巴尼亚文',
+                },
+                {
+                    value: 'ga',
+                    text: '爱尔兰文',
+                },
+                {
+                    value: 'te',
+                    text: '泰卢固文',
+                },
+                {
+                    value: 'jv',
+                    text: '爪哇文',
+                },
+                {
+                    value: 'sl',
+                    text: '斯洛文尼亚文',
+                },
+                {
+                    value: 'et',
+                    text: '爱沙尼亚文',
+                },
+                {
+                    value: 'az',
+                    text: '阿塞拜疆文',
+                },
+                {
+                    value: 'sk',
+                    text: '斯洛伐克文',
+                },
+                {
+                    value: 'af',
+                    text: '南非荷兰文',
+                },
+                {
+                    value: 'lv',
+                    text: '拉脱维亚文',
+                }
+            ],
+            default: 'en',
+        },
