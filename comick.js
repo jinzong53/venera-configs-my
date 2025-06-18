@@ -16,269 +16,6 @@ class Comick extends ComicSource {
             ],
             default: "preview.comick.io"
         },
-        language: {
-            title: "首选语言(俄文往下比例过低慎重选择)",
-            type: "select",
-            options: [
-                {
-                    value: 'en',
-                    text: '英文',
-                },
-                {
-                    value: 'pt-br',
-                    text: '巴西葡萄牙文',
-                },
-                {
-                    value: 'es-419',
-                    text: '拉丁美洲西班牙文',
-                },
-                {
-                    value: 'ru',
-                    text: '俄文',
-                },
-                {
-                    value: 'vi',
-                    text: '越南文',
-                },
-                {
-                    value: 'fr',
-                    text: '法文',
-                },
-                {
-                    value: 'pl',
-                    text: '波兰文',
-                },
-                {
-                    value: 'id',
-                    text: '印度尼西亚文',
-                },
-                {
-                    value: 'tr',
-                    text: '土耳其文',
-                },
-                {
-                    value: 'it',
-                    text: '意大利文',
-                },
-                {
-                    value: 'es',
-                    text: '西班牙文',
-                },
-                {
-                    value: 'uk',
-                    text: '乌克兰文',
-                },
-                {
-                    value: 'ar',
-                    text: '阿拉伯文',
-                },
-                {
-                    value: 'zh-hk',
-                    text: '香港繁体中文',
-                },
-                {
-                    value: 'hu',
-                    text: '匈牙利文',
-                },
-                {
-                    value: 'zh',
-                    text: '中文',
-                },
-                {
-                    value: 'de',
-                    text: '德文',
-                },
-                {
-                    value: 'ko',
-                    text: '韩文',
-                },
-                {
-                    value: 'th',
-                    text: '泰文',
-                },
-                {
-                    value: 'bg',
-                    text: '保加利亚文',
-                },
-                {
-                    value: 'ca',
-                    text: '加泰罗尼亚文',
-                },
-                {
-                    value: 'fa',
-                    text: '波斯文',
-                },
-                {
-                    value: 'ro',
-                    text: '罗马尼亚文',
-                },
-                {
-                    value: 'cs',
-                    text: '捷克文',
-                },
-                {
-                    value: 'mn',
-                    text: '蒙古文',
-                },
-                {
-                    value: 'he',
-                    text: '希伯来文',
-                },
-                {
-                    value: 'pt',
-                    text: '葡萄牙文',
-                },
-                {
-                    value: 'hi',
-                    text: '印地文',
-                },
-                {
-                    value: 'tl',
-                    text: '菲律宾文/他加禄文',
-                },
-                {
-                    value: 'fi',
-                    text: '芬兰文',
-                },
-                {
-                    value: 'ms',
-                    text: '马来文',
-                },
-                {
-                    value: 'eu',
-                    text: '巴斯克文',
-                },
-                {
-                    value: 'kk',
-                    text: '哈萨克文',
-                },
-                {
-                    value: 'sr',
-                    text: '塞尔维亚文',
-                },
-                {
-                    value: 'my',
-                    text: '缅甸文',
-                },
-                {
-                    value: 'el',
-                    text: '希腊文',
-                },
-                {
-                    value: 'nl',
-                    text: '荷兰文',
-                },
-                {
-                    value: 'ja',
-                    text: '日文',
-                },
-                {
-                    value: 'uz',
-                    text: '乌兹别克文',
-                },
-                {
-                    value: 'eo',
-                    text: '世界语',
-                },
-                {
-                    value: 'bn',
-                    text: '孟加拉文',
-                },
-                {
-                    value: 'lt',
-                    text: '立陶宛文',
-                },
-                {
-                    value: 'ka',
-                    text: '格鲁吉亚文',
-                },
-                {
-                    value: 'da',
-                    text: '丹麦文',
-                },
-                {
-                    value: 'ta',
-                    text: '泰米尔文',
-                },
-                {
-                    value: 'sv',
-                    text: '瑞典文',
-                },
-                {
-                    value: 'be',
-                    text: '白俄罗斯文',
-                },
-                {
-                    value: 'cv',
-                    text: '楚瓦什文',
-                },
-                {
-                    value: 'hr',
-                    text: '克罗地亚文',
-                },
-                {
-                    value: 'la',
-                    text: '拉丁文',
-                },
-                {
-                    value: 'ne',
-                    text: '尼泊尔文',
-                },
-                {
-                    value: 'ur',
-                    text: '乌尔都文',
-                },
-                {
-                    value: 'gl',
-                    text: '加利西亚文',
-                },
-                {
-                    value: 'no',
-                    text: '挪威文',
-                },
-                {
-                    value: 'sq',
-                    text: '阿尔巴尼亚文',
-                },
-                {
-                    value: 'ga',
-                    text: '爱尔兰文',
-                },
-                {
-                    value: 'te',
-                    text: '泰卢固文',
-                },
-                {
-                    value: 'jv',
-                    text: '爪哇文',
-                },
-                {
-                    value: 'sl',
-                    text: '斯洛文尼亚文',
-                },
-                {
-                    value: 'et',
-                    text: '爱沙尼亚文',
-                },
-                {
-                    value: 'az',
-                    text: '阿塞拜疆文',
-                },
-                {
-                    value: 'sk',
-                    text: '斯洛伐克文',
-                },
-                {
-                    value: 'af',
-                    text: '南非荷兰文',
-                },
-                {
-                    value: 'lv',
-                    text: '拉脱维亚文',
-                }
-            ],
-            default: 'en',
-        },
     }
 
     get baseUrl() {
@@ -574,135 +311,6 @@ class Comick extends ComicSource {
         optionList: []
     }
 
-    // favorite related
-    favorites = {
-        // whether support multi folders
-        multiFolder: false,
-        /**
-         * add or delete favorite.
-         * throw `Login expired` to indicate login expired, App will automatically re-login and re-add/delete favorite
-         * @param comicId {string}
-         * @param folderId {string}
-         * @param isAdding {boolean} - true for add, false for delete
-         * @param favoriteId {string?} - [Comic.favoriteId]
-         * @returns {Promise<any>} - return any value to indicate success
-         */
-        addOrDelFavorite: async (comicId, folderId, isAdding, favoriteId) => {
-            /*
-            ```
-            let res = await Network.post('...')
-            if (res.status === 401) {
-                throw `Login expired`;
-            }
-            return 'ok'
-            ```
-            */
-        },
-        /**
-         * load favorite folders.
-         * throw `Login expired` to indicate login expired, App will automatically re-login retry.
-         * if comicId is not null, return favorite folders which contains the comic.
-         * @param comicId {string?}
-         * @returns {Promise<{folders: {[p: string]: string}, favorited: string[]}>} - `folders` is a map of folder id to folder name, `favorited` is a list of folder id which contains the comic
-         */
-        loadFolders: async (comicId) => {
-            /*
-            ```
-            let data = JSON.parse((await Network.get('...')).body)
-
-            let folders = {}
-
-            data.folders.forEach((f) => {
-                folders[f.id] = f.name
-            })
-
-            return {
-                folders: folders,
-                favorited: data.favorited
-            }
-            ```
-            */
-        },
-        /**
-         * add a folder
-         * @param name {string}
-         * @returns {Promise<any>} - return any value to indicate success
-         */
-        addFolder: async (name) => {
-            /*
-            ```
-            let res = await Network.post('...')
-            if (res.status === 401) {
-                throw `Login expired`;
-            }
-            return 'ok'
-            ```
-            */
-        },
-        /**
-         * delete a folder
-         * @param folderId {string}
-         * @returns {Promise<void>} - return any value to indicate success
-         */
-        deleteFolder: async (folderId) => {
-            /*
-            ```
-            let res = await Network.delete('...')
-            if (res.status === 401) {
-                throw `Login expired`;
-            }
-            return 'ok'
-            ```
-            */
-        },
-        /**
-         * load comics in a folder
-         * throw `Login expired` to indicate login expired, App will automatically re-login retry.
-         * @param page {number}
-         * @param folder {string?} - folder id, null for non-multi-folder
-         * @returns {Promise<{comics: Comic[], maxPage: number}>}
-         */
-        loadComics: async (page, folder) => {
-            /*
-            ```
-            let data = JSON.parse((await Network.get('...')).body)
-            let maxPage = data.maxPage
-
-            function parseComic(comic) {
-                // ...
-
-                return new Comic{
-                    id: id,
-                    title: title,
-                    subTitle: author,
-                    cover: cover,
-                    tags: tags,
-                    description: description
-                }
-            }
-
-            return {
-                comics: data.list.map(parseComic),
-                maxPage: maxPage
-            }
-            ```
-            */
-        },
-        /**
-         * load comics with next page token
-         * @param next {string | null} - next page token, null for first page
-         * @param folder {string}
-         * @returns {Promise<{comics: Comic[], next: string?}>}
-         */
-        loadNext: async (next, folder) => {
-
-        },
-        /**
-         * If the comic source only allows one comic in one folder, set this to true.
-         */
-        singleFolderForSingleComic: false,
-    }
-
     /// single comic related
     comic = {
         // 加载漫画信息
@@ -753,6 +361,7 @@ class Comick extends ComicSource {
                     cover: cover,
                     description: description,
                     tags: {
+                        "语言": [],
                         "作者": [author],
                         "更新": ["暂无更新"],
                         "标签": translatedTags,
@@ -762,7 +371,6 @@ class Comick extends ComicSource {
                 }
             }
 
-           // let updateTime = comicData.last_chapter ? "第" + comicData.last_chapter + "话" : " "; //这里目前还无法实现更新时间
             let buildId = jsonData.buildId;
             let slug = jsonData.query.slug;
             let firstChapter = jsonData.props.pageProps.firstChapters[0];
@@ -785,6 +393,7 @@ class Comick extends ComicSource {
                         cover: cover,
                         description: description,
                         tags: {
+                            "语言": [firstChapter?.lang || ""],
                             "作者": [author],
                             "更新": [updateTime],
                             "标签": translatedTags,
@@ -834,6 +443,7 @@ class Comick extends ComicSource {
                 cover: cover,
                 description: description,
                 tags: {
+                    "语言": [firstChapter?.lang || ""],
                     "作者": [author],
                     "更新": [updateTime],
                     "标签": translatedTags,
