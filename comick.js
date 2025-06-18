@@ -16,25 +16,269 @@ class Comick extends ComicSource {
             ],
             default: "preview.comick.io"
         },
-        // language: {
-        //     title: "标题语言",
-        //     type: "select",
-        //     options: [
-        //         {
-        //             value: '中文',
-        //             text: 'zh',
-        //         },
-        //         {
-        //             value: '韩文',
-        //             text: 'ko',
-        //         },
-        //         {
-        //             value: '英文',
-        //             text: 'en',
-        //         },
-        //     ],
-        //     default: 'en',
-        // },
+        language: {
+            title: "首选语言(俄文往下比例过低慎重选择)",
+            type: "select",
+            options: [
+                {
+                    value: 'en',
+                    text: '英文',
+                },
+                {
+                    value: 'pt-br',
+                    text: '巴西葡萄牙文',
+                },
+                {
+                    value: 'es-419',
+                    text: '拉丁美洲西班牙文',
+                },
+                {
+                    value: 'ru',
+                    text: '俄文',
+                },
+                {
+                    value: 'vi',
+                    text: '越南文',
+                },
+                {
+                    value: 'fr',
+                    text: '法文',
+                },
+                {
+                    value: 'pl',
+                    text: '波兰文',
+                },
+                {
+                    value: 'id',
+                    text: '印度尼西亚文',
+                },
+                {
+                    value: 'tr',
+                    text: '土耳其文',
+                },
+                {
+                    value: 'it',
+                    text: '意大利文',
+                },
+                {
+                    value: 'es',
+                    text: '西班牙文',
+                },
+                {
+                    value: 'uk',
+                    text: '乌克兰文',
+                },
+                {
+                    value: 'ar',
+                    text: '阿拉伯文',
+                },
+                {
+                    value: 'zh-hk',
+                    text: '香港繁体中文',
+                },
+                {
+                    value: 'hu',
+                    text: '匈牙利文',
+                },
+                {
+                    value: 'zh',
+                    text: '中文',
+                },
+                {
+                    value: 'de',
+                    text: '德文',
+                },
+                {
+                    value: 'ko',
+                    text: '韩文',
+                },
+                {
+                    value: 'th',
+                    text: '泰文',
+                },
+                {
+                    value: 'bg',
+                    text: '保加利亚文',
+                },
+                {
+                    value: 'ca',
+                    text: '加泰罗尼亚文',
+                },
+                {
+                    value: 'fa',
+                    text: '波斯文',
+                },
+                {
+                    value: 'ro',
+                    text: '罗马尼亚文',
+                },
+                {
+                    value: 'cs',
+                    text: '捷克文',
+                },
+                {
+                    value: 'mn',
+                    text: '蒙古文',
+                },
+                {
+                    value: 'he',
+                    text: '希伯来文',
+                },
+                {
+                    value: 'pt',
+                    text: '葡萄牙文',
+                },
+                {
+                    value: 'hi',
+                    text: '印地文',
+                },
+                {
+                    value: 'tl',
+                    text: '菲律宾文/他加禄文',
+                },
+                {
+                    value: 'fi',
+                    text: '芬兰文',
+                },
+                {
+                    value: 'ms',
+                    text: '马来文',
+                },
+                {
+                    value: 'eu',
+                    text: '巴斯克文',
+                },
+                {
+                    value: 'kk',
+                    text: '哈萨克文',
+                },
+                {
+                    value: 'sr',
+                    text: '塞尔维亚文',
+                },
+                {
+                    value: 'my',
+                    text: '缅甸文',
+                },
+                {
+                    value: 'el',
+                    text: '希腊文',
+                },
+                {
+                    value: 'nl',
+                    text: '荷兰文',
+                },
+                {
+                    value: 'ja',
+                    text: '日文',
+                },
+                {
+                    value: 'uz',
+                    text: '乌兹别克文',
+                },
+                {
+                    value: 'eo',
+                    text: '世界语',
+                },
+                {
+                    value: 'bn',
+                    text: '孟加拉文',
+                },
+                {
+                    value: 'lt',
+                    text: '立陶宛文',
+                },
+                {
+                    value: 'ka',
+                    text: '格鲁吉亚文',
+                },
+                {
+                    value: 'da',
+                    text: '丹麦文',
+                },
+                {
+                    value: 'ta',
+                    text: '泰米尔文',
+                },
+                {
+                    value: 'sv',
+                    text: '瑞典文',
+                },
+                {
+                    value: 'be',
+                    text: '白俄罗斯文',
+                },
+                {
+                    value: 'cv',
+                    text: '楚瓦什文',
+                },
+                {
+                    value: 'hr',
+                    text: '克罗地亚文',
+                },
+                {
+                    value: 'la',
+                    text: '拉丁文',
+                },
+                {
+                    value: 'ne',
+                    text: '尼泊尔文',
+                },
+                {
+                    value: 'ur',
+                    text: '乌尔都文',
+                },
+                {
+                    value: 'gl',
+                    text: '加利西亚文',
+                },
+                {
+                    value: 'no',
+                    text: '挪威文',
+                },
+                {
+                    value: 'sq',
+                    text: '阿尔巴尼亚文',
+                },
+                {
+                    value: 'ga',
+                    text: '爱尔兰文',
+                },
+                {
+                    value: 'te',
+                    text: '泰卢固文',
+                },
+                {
+                    value: 'jv',
+                    text: '爪哇文',
+                },
+                {
+                    value: 'sl',
+                    text: '斯洛文尼亚文',
+                },
+                {
+                    value: 'et',
+                    text: '爱沙尼亚文',
+                },
+                {
+                    value: 'az',
+                    text: '阿塞拜疆文',
+                },
+                {
+                    value: 'sk',
+                    text: '斯洛伐克文',
+                },
+                {
+                    value: 'af',
+                    text: '南非荷兰文',
+                },
+                {
+                    value: 'lv',
+                    text: '拉脱维亚文',
+                }
+            ],
+            default: 'en',
+        },
     }
 
     get baseUrl() {
@@ -129,6 +373,87 @@ class Comick extends ComicSource {
         "sexual-violence": "性暴力",
         "smut": "肉欲",
     }
+    static reversed_category_param_dict = {
+    "浪漫": "romance",
+    "喜剧": "comedy",
+    "剧情": "drama",
+    "奇幻": "fantasy",
+    "日常": "slice-of-life",
+    "动作": "action",
+    "冒险": "adventure",
+    "心理": "psychological",
+    "悬疑": "mystery",
+    "历史": "historical",
+    "悲剧": "tragedy",
+    "科幻": "sci-fi",
+    "恐怖": "horror",
+    "异世界": "isekai",
+    "运动": "sports",
+    "惊悚": "thriller",
+    "机甲": "mecha",
+    "哲学": "philosophical",
+    "武侠": "wuxia",
+    "医疗": "medical",
+    "魔法少女": "magical-girls",
+    "超级英雄": "superhero",
+    "少年爱": "shounen-ai",
+    "成年": "mature",
+    "性转": "gender-bender",
+    "少女爱": "shoujo-ai",
+    "单篇": "oneshot",
+    "网络漫画": "web-comic",
+    "同人志": "doujinshi",
+    "全彩": "full-color",
+    "长条": "long-strip",
+    "改编": "adaptation",
+    "选集": "anthology",
+    "四格": "4-koma",
+    "用户创作": "user-created",
+    "获奖": "award-winning",
+    "官方上色": "official-colored",
+    "粉丝上色": "fan-colored",
+    "校园生活": "school-life",
+    "超自然": "supernatural",
+    "魔法": "magic",
+    "怪物": "monsters",
+    "武术": "martial-arts",
+    "动物": "animals",
+    "恶魔": "demons",
+    "后宫": "harem",
+    "转生": "reincarnation",
+    "上班族": "office-workers",
+    "生存": "survival",
+    "军事": "military",
+    "女装": "crossdressing",
+    "萝莉": "loli",
+    "正太": "shota",
+    "百合": "yuri",
+    "耽美": "yaoi",
+    "电子游戏": "video-games",
+    "魔物娘": "monster-girls",
+    "不良少年": "delinquents",
+    "幽灵": "ghosts",
+    "时间旅行": "time-travel",
+    "烹饪": "cooking",
+    "警察": "police",
+    "外星人": "aliens",
+    "音乐": "music",
+    "黑帮": "mafia",
+    "吸血鬼": "vampires",
+    "武士": "samurai",
+    "后末日": "post-apocalyptic",
+    "辣妹": "gyaru",
+    "恶役千金": "villainess",
+    "逆后宫": "reverse-harem",
+    "忍者": "ninja",
+    "僵尸": "zombies",
+    "传统游戏": "traditional-games",
+    "虚拟现实": "virtual-reality",
+    "成人": "adult",
+    "情色": "ecchi",
+    "性暴力": "sexual-violence",
+    "肉欲": "smut"
+}
 
     transformBookList(bookList, descriptionPrefix = "更新至：") {
         return bookList.map(book => ({
@@ -474,7 +799,7 @@ class Comick extends ComicSource {
                 firstChapter.chap != null 
                     ? `-chapter-${firstChapter.chap}` 
                     : `-volume-${firstChapter.vol}`
-            }-en.json`;
+            }-${firstChapter.lang}.json`;
             let list_res = await Network.get(chapters_url)
             if (list_res.status !== 200) {
                 throw "Invalid status code: " + res.status
@@ -494,13 +819,13 @@ class Comick extends ComicSource {
                     chapters.set(chapter.hid + "//no//-1", chapNum);
                 }else if(chapter.chap!=null && chapter.vol==null){
                     let chapNum =  "第" + chapter.chap + "话" ;
-                    chapters.set(chapter.hid + "//chapter//" + chapter.chap, chapNum);
+                    chapters.set(chapter.hid + "//chapter//" + chapter.chap + "//" + firstChapter.lang, chapNum);
                 }else if(chapter.chap==null && chapter.vol!==null){
                     let chapNum =  "第" + chapter.vol + "卷" ;
-                    chapters.set(chapter.hid + "//volume//" + chapter.vol, chapNum);
+                    chapters.set(chapter.hid + "//volume//" + chapter.vol + "//" + firstChapter.lang, chapNum);
                 }else{
                     let chapNum =  "第" + chapter.chap + "话" ;
-                    chapters.set(chapter.hid + "//chapter//" + chapter.chap, chapNum);
+                    chapters.set(chapter.hid + "//chapter//" + chapter.chap + "//" + firstChapter.lang, chapNum);
                 }
             });
 
@@ -524,10 +849,10 @@ class Comick extends ComicSource {
             }
 
             const images = [];
-            const [hid, type, chapter] = epId.split("//");
+            const [hid, type, chapter, lang] = epId.split("//");
 
             // 检查分割结果是否有效
-            if (!hid || !type || !chapter) {
+            if (!hid || !type || !chapter || !lang) {
                 console.error("Invalid epId format. Expected 'hid//chapter'");
                 return {images};  // 返回空数组
             }
@@ -537,7 +862,7 @@ class Comick extends ComicSource {
                 // 如果是无标卷, 只看第一个
                 url = `${this.baseUrl}/comic/${cId}/${hid}`;
             }else{
-                url = `${this.baseUrl}/comic/${cId}/${hid}-${type}-${chapter}-en.json`;
+                url = `${this.baseUrl}/comic/${cId}/${hid}-${type}-${chapter}-${lang}.json`;
             }
 
             let maxAttempts = 100;
@@ -571,13 +896,14 @@ class Comick extends ComicSource {
         },
         onClickTag: (namespace, tag) => {
             if (namespace === "标签") {
+                let r_tag = Comick.reversed_category_param_dict[tag] || tag;
                 return {
                     action: 'category',
                     keyword: `${tag}`,
-                    param: null,
+                    param: r_tag,
                 }
             }
-            throw "未支持此类Tag检索"
-        }
+            throw "Click Tag Error"
+        },
     }
 }
