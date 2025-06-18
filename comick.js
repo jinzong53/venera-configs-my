@@ -615,7 +615,7 @@ class Comick extends ComicSource {
                 }
             }
 
-            //处理多语言问题
+           // let updateTime = comicData.last_chapter ? "第" + comicData.last_chapter + "话" : " "; //这里目前还无法实现更新时间
             let buildId = jsonData.buildId;
             let slug = jsonData.query.slug;
             let firstChapter = jsonData.props.pageProps.firstChapters[0];
@@ -628,9 +628,25 @@ class Comick extends ComicSource {
                         break;
                     }
                 }
+                // 如果处理完成之后依然章节没有卷和话信息，直接返回无标卷
+                if(firstChapter.vol == null && firstChapter.chap == null){
+                    let chapters = new Map()
+                    chapters.set(firstChapter.hid + "//no//-1", "无标卷")
+                    return {
+                        title: title,
+                        cover: cover,
+                        description: description,
+                        tags: {
+                            "作者": [author],
+                            "更新": [updateTime],
+                            "标签": translatedTags,
+                            "状态": [Comick.comic_status[status]]
+                        },
+                        chapters: chapters,
+                    }
+                }
             }
 
-            //预先测试
             let chapters_url = `${this.baseUrl}/_next/data/${buildId}/comic/${slug}/${firstChapter.hid}${
                 firstChapter.chap != null 
                     ? `-chapter-${firstChapter.chap}` 
@@ -654,7 +670,6 @@ class Comick extends ComicSource {
                 cover: cover,
                 description: description,
                 tags: {
-                    //"语言": [firstChapter?.lang || ""],
                     "作者": [author],
                     "更新": [updateTime],
                     "标签": translatedTags,
